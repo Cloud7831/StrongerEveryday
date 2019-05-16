@@ -25,12 +25,12 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
         if (position == 0){
             return new HomeFragment();
         }
-        else if (position == 1){
-            return new WorkoutListFragment();
-        }
+//        else if (position == 1){
+//            return new WorkoutListFragment();
+//        }
         else {
             //TODO: set an error if we somehow scroll too many times.
-            return null;
+            return new WorkoutListFragment();
         }
     }
 
@@ -49,7 +49,7 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
         }
         else {
             //TODO: this should return an error!
-            return null;
+            return context.getString(R.string.tab_workoutlist);
         }
     }
 }
