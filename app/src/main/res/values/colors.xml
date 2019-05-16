@@ -3,4 +3,45 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    
+    
+    <!--Dark mode colours-->
+    <color name="darkmodeBackground">#373737</color>
+    <color name="darkmodePrimary">#292929</color>
+    <color name="darkmodePrimaryDark">#191919</color>
+    <color name="darkmodeLightText">@color/white</color>
+    <color name="darkmodeDarkText">#EEEEEE</color>
+
+
+
+    <!--Natural Colours-->
+    <color name="red">#FF0000</color>
+    <color name="orange">#FFA500</color>
+    <color name="gold">#FFD700</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="yellowGreen">#A5FF00</color>
+    <color name="limeGreen">#00FF00</color>
+    <color name="green">#009000</color>
+    <color name="darkGreen">#006400</color>
+    <color name="springGreen">#00FFA5</color>
+    <color name="cyan">#00FFFF</color>
+    <color name="turquoise">#40E0D0</color>
+    <color name="skyBlue">#00A5FF</color>
+    <color name="blue">#0000FF</color>
+    <color name="purple">#A500FF</color>
+    <color name="magenta">#FF00FF</color>
+    <color name="hotPink">#FF69B4</color>
+    <color name="peach">#FFC0CB</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    
+
+    
+    
+    
+    
+    
+    
+    
 </resources>

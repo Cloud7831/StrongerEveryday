@@ -3,9 +3,17 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/darkmodePrimary</item>
+        <item name="colorPrimaryDark">@color/darkmodePrimaryDark</item>
+        <item name="colorAccent">@color/springGreen</item>
+    </style>
+    <!-- Style for the tabs in the MainActivity-->
+    <style name="MainTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabTextColor">@color/darkmodeDarkText</item>
+        <item name="tabBackground">@color/darkmodePrimary</item>
+        <item name="tabIndicatorColor">@color/white</item>
+        <item name="tabSelectedTextColor">@color/darkmodeLightText</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
 </resources>
