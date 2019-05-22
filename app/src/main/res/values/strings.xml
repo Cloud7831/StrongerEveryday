@@ -9,4 +9,17 @@
 
     <!-- Tab name for the vocabulary words for colors [CHAR LIMIT=20] -->
     <string name="tab_workoutlist">Workout</string>
+
+    <!-- Indicates when a workout was last completed. Note that there should be a colon at the end [CHAR LIMIT=40] -->
+    <string name="exercise_last_completed">Last completed:</string>
+
+    <!-- Text on the begin workout button [CHAR LIMIT=40] -->
+    <string name="begin_workout">Begin workout</string>
+
+    <!-- Text on the "end workout" button [CHAR LIMIT=40] -->
+    <string name="end_workout">End workout</string>
+
+
+
+
 </resources>
