@@ -32,9 +32,19 @@ public class WorkoutSetAdapter extends ArrayAdapter<WorkoutSet> {
 
 
 
-        //Find the view where we want to store the Default Translation. Using list_item.xml.
+        // Update the textViews so that they display the info from the workout.
         TextView workoutNameTextView = (TextView) listItemView.findViewById(R.id.workout_name_text_view);
         workoutNameTextView.setText(currentWorkout.getWorkoutName());
+
+        TextView daysTextView = (TextView) listItemView.findViewById(R.id.workout_days_text_view);
+
+        int days = currentWorkout.getDaysLastCompleted();
+        if(days == 0){
+            daysTextView.setText("Last completed today.");
+        }
+        else{
+            daysTextView.setText("Last completed " + days + " days ago.");
+        }
 
         //TODO: finish the rest of this.
 //
