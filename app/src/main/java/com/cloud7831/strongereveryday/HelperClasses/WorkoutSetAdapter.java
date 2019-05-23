@@ -42,6 +42,9 @@ public class WorkoutSetAdapter extends ArrayAdapter<WorkoutSet> {
         if(days == 0){
             daysTextView.setText("Last completed today.");
         }
+        else if(days == 1){
+            daysTextView.setText("Last completed " + days + " day ago."); // Singular day.
+        }
         else{
             daysTextView.setText("Last completed " + days + " days ago.");
         }
