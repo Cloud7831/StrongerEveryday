@@ -7,17 +7,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
+import com.cloud7831.strongereveryday.HelperClasses.WorkoutSetAdapter;
+import com.cloud7831.strongereveryday.Objects.WorkoutSet;
 import com.cloud7831.strongereveryday.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link WorkoutListFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link WorkoutListFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
 public class WorkoutListFragment extends Fragment {
 
 
@@ -36,7 +33,27 @@ public class WorkoutListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_workout_list, container, false);
+
+        View rootView = inflater.inflate(R.layout.fragment_workout_list, container, false);
+
+
+        //TODO: Delete this. This is just placeholder data so I can see what it looks like with the UI.
+        final ArrayList<WorkoutSet> workouts = new ArrayList<WorkoutSet>();
+        workouts.add(new WorkoutSet("Chest", 3, 0));
+        workouts.add(new WorkoutSet("Legs", 3, 0));
+        workouts.add(new WorkoutSet("Abs", 3, 0));
+        //TODO: Delete -------------------------------------------------------------------------------
+
+        WorkoutSetAdapter workoutAdapter = new WorkoutSetAdapter(getActivity(), workouts);
+
+        ListView listView = (ListView) rootView.findViewById(R.id.list);
+
+        listView.setAdapter(workoutAdapter);
+        
+
+
+
+        return rootView;
     }
 
 }
