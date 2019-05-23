@@ -11,6 +11,8 @@
         android:layout_height="match_parent"
         android:drawSelectorOnTop="true"
         android:orientation="vertical"
+        android:background="@color/darkmodeBackground"
+        android:padding="8dp"
         />
 
 

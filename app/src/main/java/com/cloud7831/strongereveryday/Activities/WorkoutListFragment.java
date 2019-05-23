@@ -49,7 +49,7 @@ public class WorkoutListFragment extends Fragment {
         ListView listView = (ListView) rootView.findViewById(R.id.list);
 
         listView.setAdapter(workoutAdapter);
-        
+
 
 
 
