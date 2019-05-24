@@ -10,7 +10,7 @@
     <color name="darkmodePrimary">#212121</color>
     <color name="darkmodePrimaryDark">#151515</color>
     <color name="darkmodeLightText">@color/white</color>
-    <color name="darkmodeDarkText">#CCCCCC</color>
+    <color name="darkmodeDarkText">#BBBBBB</color>
 
 
     <!--Natural Colours-->
