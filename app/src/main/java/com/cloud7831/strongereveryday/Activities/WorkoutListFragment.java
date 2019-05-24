@@ -46,7 +46,7 @@ public class WorkoutListFragment extends Fragment {
         //TODO: add an options button to the workouts once you click on them. Suck as edit workout, or delete workout along with the start workout.
 
 
-        //TODO: Delete this. This is just placeholder data so I can see what it looks like with the UI.
+        //TODO: Delete this. This is just placeholder dummy data so I can see what it looks like with the UI.
         final ArrayList<WorkoutSet> workouts = new ArrayList<WorkoutSet>();
         workouts.add(new WorkoutSet("Chest", 3, 0));
         workouts.add(new WorkoutSet("Legs", 0, 0));
