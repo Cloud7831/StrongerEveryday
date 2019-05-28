@@ -9,4 +9,6 @@ public interface WorkoutItemCard {
     public WorkoutCardType getType();
 
     public boolean hasName(); // Indicades if the WorkoutItemCard has a name it needs to display.
+
+    public String getName(); // Only used if hasName = true.
 }

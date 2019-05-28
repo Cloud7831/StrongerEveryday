@@ -22,6 +22,8 @@ public class Exercise {
     private double[] weightPerSet;  // Current weight per set the user uses. Note that only 0.5 lbs increments are allowed.
     private double maxWeight;       // The most the user has been able to use for this exercise.
 
+    private int score;              // Some exercises have a score associated with them.
+
     public Exercise(String exerciseName){
         //TODO: use the exercise name to lookup the exercise info from filesystem
         this.exerciseName = exerciseName;
@@ -32,6 +34,7 @@ public class Exercise {
         repsPerSet = new int[]{12, 10, 8};
         weightPerSet = new double[]{62.5, 50, 50};
         maxRepsPerSet = 15;
+        score = 1000;
     }
 
 
@@ -66,6 +69,10 @@ public class Exercise {
 
     public double getMaxWeight() {
         return maxWeight;
+    }
+
+    public int getScore(){
+        return score;
     }
 
     public void setExerciseName(String exerciseName) {
