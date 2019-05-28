@@ -32,7 +32,7 @@ public class Exercise {
         //TODO: Delete this later. This is just dummy data for testing
         numSets = 3;
         repsPerSet = new int[]{12, 10, 8};
-        weightPerSet = new double[]{62.5, 50, 50};
+        weightPerSet = new double[]{162.5, 50, 50};
         maxRepsPerSet = 15;
         score = 1000;
     }

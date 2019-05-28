@@ -17,6 +17,8 @@ public class ExerciseItemCard implements WorkoutItemCard {
         name = exercise.getExerciseName();
         exer = exercise;
         numSets = exercise.getNumSets();
+        weights = exercise.getWeightPerSet();
+        reps = exercise.getRepsPerSet();
     }
 
 
