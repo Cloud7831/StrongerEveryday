@@ -29,8 +29,14 @@ public class WorkoutAdapter extends ArrayAdapter<WorkoutItemCard>{
             if(listItemView == null){
                 //false because we don't want to attach the list item view to the parent list view just yet.
                 //TODO: make a exercise_card_layout.
-                listItemView = LayoutInflater.from(getContext()).inflate(R.layout.workout_list_item, parent, false);
+                listItemView = LayoutInflater.from(getContext()).inflate(R.layout.exercise_card_layout, parent, false);
             }
+
+            //TODO: an exercise card should be an abstract class. Each exercise card needs to have certain functions, such as getName()
+            //TODO: so that I don't need to have a bunch of if/else statements to do certain actions depending on the type of card I have.
+
+            TextView nameView = (TextView) listItemView.findViewById(R.id.exercise_name_text_view);
+            nameView.setText(currentCard.getName());
 
             return listItemView;//We only return one view, and that's listItemView which contains all the other views we want. I think?
         }

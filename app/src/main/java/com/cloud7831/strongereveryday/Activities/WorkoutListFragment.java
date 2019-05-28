@@ -1,9 +1,6 @@
 package com.cloud7831.strongereveryday.Activities;
 
-import android.content.ContentUris;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -64,7 +61,7 @@ public class WorkoutListFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Intent intent = new Intent(getContext(), Workout.class);
+                Intent intent = new Intent(getContext(), WorkoutActivity.class);
 
                 //Uri currentPetUri = ContentUris.withAppendedId(PetEntry.CONTENT_URI, id);
                 //intent.setData(currentPetUri);

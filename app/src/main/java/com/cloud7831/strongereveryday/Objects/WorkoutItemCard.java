@@ -2,7 +2,7 @@ package com.cloud7831.strongereveryday.Objects;
 
 public class WorkoutItemCard {
 
-    // Workout Item Cards are what's used to make the WorkoutActivity.
+    // WorkoutActivity Item Cards are what's used to make the WorkoutActivity.
 
     //TODO: make an enum type for WorkoutCardType. In WorkoutContract.
     private int type; // The type of card. E.g. Video, Exercise, End Button, etc.

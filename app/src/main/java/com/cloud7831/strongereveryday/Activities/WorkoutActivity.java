@@ -18,7 +18,7 @@ import com.cloud7831.strongereveryday.R;
 
 import java.util.ArrayList;
 
-public class Workout extends AppCompatActivity {
+public class WorkoutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class Workout extends AppCompatActivity {
 
         // This is to remove the shadow on the support action bar.
         getSupportActionBar().setElevation(0);
-        getSupportActionBar().setTitle("Chest Workout");
+        getSupportActionBar().setTitle("Chest WorkoutActivity");
 
         //TODO: Delete this. This is just placeholder dummy data so I can see what it looks like with the UI.
         final ArrayList<WorkoutItemCard> cards = new ArrayList<WorkoutItemCard>();
