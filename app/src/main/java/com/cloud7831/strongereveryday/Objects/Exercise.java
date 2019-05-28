@@ -1,5 +1,7 @@
 package com.cloud7831.strongereveryday.Objects;
 
+import com.cloud7831.strongereveryday.Data.WorkoutContract;
+
 public class Exercise {
     // Exercise objects contain all the information about a particular exercise.
     // Exercises can be used in multiple workouts (for example, you might want benchpress
@@ -19,7 +21,7 @@ public class Exercise {
 
     public Exercise(String exerciseName){
         //TODO: use the exercise name to lookup the exercise info from filesystem
-
+        this.exerciseName = exerciseName;
     }
 
 

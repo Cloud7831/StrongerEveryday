@@ -1,19 +1,13 @@
 package com.cloud7831.strongereveryday.Activities;
 
-import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.cloud7831.strongereveryday.HelperClasses.MainPagerAdapter;
 import com.cloud7831.strongereveryday.HelperClasses.WorkoutAdapter;
-import com.cloud7831.strongereveryday.HelperClasses.WorkoutSetAdapter;
-import com.cloud7831.strongereveryday.Objects.WorkoutItemCard;
-import com.cloud7831.strongereveryday.Objects.WorkoutSet;
+import com.cloud7831.strongereveryday.ItemCards.WorkoutItemCard;
 import com.cloud7831.strongereveryday.R;
 
 import java.util.ArrayList;

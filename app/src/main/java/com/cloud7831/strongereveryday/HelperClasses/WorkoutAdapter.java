@@ -7,8 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.cloud7831.strongereveryday.Objects.WorkoutItemCard;
-import com.cloud7831.strongereveryday.Objects.WorkoutSet;
+import com.cloud7831.strongereveryday.ItemCards.WorkoutItemCard;
 import com.cloud7831.strongereveryday.R;
 
 import java.util.ArrayList;

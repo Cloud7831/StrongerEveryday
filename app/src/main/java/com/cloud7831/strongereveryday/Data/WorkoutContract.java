@@ -9,7 +9,10 @@ public final class WorkoutContract {
     public static final String PATH_WORKOUT = "workout";
     public static final Uri WORKOUT_CONTENT_URI = Uri.withAppendedPath(BASE_CONTENT_URI, PATH_WORKOUT);
 
-    //TODO: make an enum type for WorkoutCardType. In WorkoutContract.
-
+    public enum WorkoutCardType{
+        EXERCISE,
+        VIDEO,
+        ENDCARD;
+    }
 
 }
