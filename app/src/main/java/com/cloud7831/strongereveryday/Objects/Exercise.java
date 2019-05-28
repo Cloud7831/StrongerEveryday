@@ -12,21 +12,30 @@ public class Exercise {
     private String userNotes; // Notes that the user has written for this exercise.
     // Integers for Sets, Reps, and Weight.
 
-    private int numSets; // How many sets the user aims for each workout.
-    private int repsPerSet; // Current amount of reps per set the user should aim for. Should be in between the min and max.
-    private int minRepsPerSet; // The minimum amount of reps a user should aim for with this exercise.
-    private int maxRepsPerSet; // The maximum amount of reps a user should aim for with this exercise.
-    private int weightPerSet; // Current weight per set the user uses. Note that this has int typing, but needs to store 0.5 lbs increments.
-    private int maxWeightAchieved; // The most the user has been able to use for this exercise.
+    // Sets --------------------------
+    private int numSets;            // How many sets the user aims for each workout.
+    // Reps --------------------------
+    private int[] repsPerSet;       // Current amount of reps per set the user should aim for. Should be in between the min and max.
+    private int minRepsPerSet;      // The minimum amount of reps a user should aim for with this exercise.
+    private int maxRepsPerSet;      // The maximum amount of reps a user should aim for with this exercise.
+    // Weight ------------------------
+    private double[] weightPerSet;  // Current weight per set the user uses. Note that only 0.5 lbs increments are allowed.
+    private double maxWeight;       // The most the user has been able to use for this exercise.
 
     public Exercise(String exerciseName){
         //TODO: use the exercise name to lookup the exercise info from filesystem
         this.exerciseName = exerciseName;
+
+
+        //TODO: Delete this later. This is just dummy data for testing
+        numSets = 3;
+        repsPerSet = new int[]{12, 10, 8};
+        weightPerSet = new double[]{62.5, 50, 50};
+        maxRepsPerSet = 15;
     }
 
 
     /* ----------------------------------- Getters and Setters ----------------------------------- */
-
     public String getExerciseName() {
         return exerciseName;
     }
@@ -39,7 +48,7 @@ public class Exercise {
         return numSets;
     }
 
-    public int getRepsPerSet() {
+    public int[] getRepsPerSet() {
         return repsPerSet;
     }
 
@@ -51,12 +60,12 @@ public class Exercise {
         return maxRepsPerSet;
     }
 
-    public int getWeightPerSet() {
+    public double[] getWeightPerSet() {
         return weightPerSet;
     }
 
-    public int getMaxWeightAchieved() {
-        return maxWeightAchieved;
+    public double getMaxWeight() {
+        return maxWeight;
     }
 
     public void setExerciseName(String exerciseName) {
@@ -71,7 +80,7 @@ public class Exercise {
         this.numSets = numSets;
     }
 
-    public void setRepsPerSet(int repsPerSet) {
+    public void setRepsPerSet(int[] repsPerSet) {
         this.repsPerSet = repsPerSet;
     }
 
@@ -83,15 +92,21 @@ public class Exercise {
         this.maxRepsPerSet = maxRepsPerSet;
     }
 
-    public void setWeightPerSet(int weightPerSet) {
-        // Note: weight is stored as an int, but needs to account for 0.5 lbs.
-        // Therefore, multiply everything by 2, and then divide when you need to use it.
-        this.weightPerSet = weightPerSet * 2;
+    public void setWeightPerSet(double[] weight) {
+        // Note: weight is stored in 0.5 lbs increments.
+        for (int i = 0; i<weight.length;i++){
+            // Make everything into nice 0.5 increments.
+            weightPerSet[i] = roundWeight(weight[i]);
+        }
     }
 
-    public void setMaxWeightAchieved(int maxWeightAchieved) {
-        // Note: weight is stored as an int, but needs to account for 0.5 lbs.
-        // Therefore, multiply everything by 2, and then divide when you need to use it.
-        this.maxWeightAchieved = maxWeightAchieved * 2;
+    public void setMaxWeight(double maxWeightAchieved) {
+        maxWeight = roundWeight(maxWeightAchieved);
+    }
+    /* --------------------------------- Getters and Setters End --------------------------------- */
+
+    private double roundWeight(double weight){
+        // Used to make weights into increments of 0.5 lbs.
+        return Math.round(weight*2)/2;
     }
 }
