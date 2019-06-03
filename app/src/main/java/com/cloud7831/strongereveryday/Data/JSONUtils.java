@@ -1,12 +1,20 @@
 package com.cloud7831.strongereveryday.Data;
 
+import android.app.Activity;
+import android.content.Context;
 import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
 public final class JSONUtils {
+
+    private final static String EXERCISE_JSON_TYPE = "Exercise"; // Signifies the JSON is an exercise.
 
     private JSONUtils(){
 
@@ -15,13 +23,59 @@ public final class JSONUtils {
 
 
     //TODO: saving and loading should be done as an async task (loader).
-    public static JSONObject loadJSON(String filename){
+    public static JSONObject loadJSON(Activity activity, String filename){
         //TODO: Take in the filename of a json file and then convert it to a JSONObject.
-        return new JSONObject();
+
+        FileInputStream inputStream;
+        String jsonText = "";
+        JSONObject returnJSON;
+        try{
+            inputStream = activity.openFileInput(filename);
+            //TODO: I should probably be using a buffered reader. This method is probably wrong.
+            int i = inputStream.read();
+            while(i != -1){
+                jsonText += (char)i; //TODO: should I really be reading values in as an int and then converting to char?
+                i = inputStream.read(); // Get the next character.
+            }
+            inputStream.close();
+
+            returnJSON = new JSONObject(jsonText);
+
+        }
+        catch(JSONException e){
+            Log.e("JSONUtils", "Problem saving a JSON: ", e);
+            returnJSON = new JSONObject();
+        }
+        catch(Exception e){
+            // TODO: should handle things such as not having enough space to save the data.
+            e.printStackTrace();
+            returnJSON = new JSONObject();
+        }
+
+        return returnJSON;
     }
 
-    public static void saveJSON(String filename, JSONObject data){
-        //TODO: Take in the filename of a json file and a JSONObject and then save the data.
+    public static void saveJSON(Activity activity, JSONObject data){
+        //TODO: Take in a JSONObject and then save the data.
+        //TODO: saving should be done as an async task.
+
+        String filename;
+        FileOutputStream outputStream;
+
+        try{
+            filename = data.getString("name") + " " + data.getString("type");
+            outputStream = activity.openFileOutput(filename, activity.MODE_PRIVATE);
+            outputStream.write(data.toString().getBytes());
+            outputStream.close();
+        }
+        catch(JSONException e){
+            Log.e("JSONUtils", "Problem saving a JSON: ", e);
+        }
+        catch(Exception e){
+            // TODO: should handle things such as not having enough space to save the data.
+            e.printStackTrace();
+        }
+
         return;
     }
 
@@ -34,6 +88,7 @@ public final class JSONUtils {
             // This data is used in workouts and other elements of the UI
             JSONObject dataJSON = new JSONObject();
             dataJSON.put("name", name);
+            dataJSON.put("type", EXERCISE_JSON_TYPE); // Signifies the JSON is an exercise.
             dataJSON.put("completed", 0);//TODO: value should be a date. 0 is a placeholder value.
             dataJSON.put("score", 0);//TODO: score is only used in some exercises. 0 is a temp placeholder.
             dataJSON.put("notes", "These are the user's notes."); //TODO: placeholder data. Remove later.
