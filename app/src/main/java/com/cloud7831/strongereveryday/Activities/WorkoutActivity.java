@@ -2,6 +2,7 @@ package com.cloud7831.strongereveryday.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.ListView;
 
 import com.cloud7831.strongereveryday.HelperClasses.WorkoutAdapter;
@@ -29,6 +30,9 @@ public class WorkoutActivity extends AppCompatActivity {
         cards.add(new ExerciseItemCard(new Exercise("Benchpress")));
         cards.add(new ExerciseItemCard(new Exercise("Squats")));
         cards.add(new ExerciseItemCard(new Exercise("Curls")));
+        cards.add(new ExerciseItemCard(new Exercise("Rows")));
+        cards.add(new ExerciseItemCard(new Exercise("EZ Bar Curls")));
+        cards.add(new ExerciseItemCard(new Exercise("Inclined Press")));
         //TODO: Delete -------------------------------------------------------------------------------
 
 
@@ -39,7 +43,14 @@ public class WorkoutActivity extends AppCompatActivity {
 
         listView.setAdapter(workoutAdapter);
 
-
-
     }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu options from the res/menu/menu_editor.xml file.
+//        // This adds menu items to the app bar.
+//        getMenuInflater().inflate(R.menu.menu_editor, menu);
+//        return true;
+//    }
+
 }
