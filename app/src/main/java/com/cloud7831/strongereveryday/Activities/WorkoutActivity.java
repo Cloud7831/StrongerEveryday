@@ -45,7 +45,7 @@ public class WorkoutActivity extends AppCompatActivity {
         final ArrayList<WorkoutItemCard> cards = new ArrayList<WorkoutItemCard>();
         try{
             Log.i("JSONTest", testExercise.toString());
-            cards.add(new ExerciseItemCard(new Exercise(testExercise.getString("name"))));
+            cards.add(new ExerciseItemCard(new Exercise(testExercise.getJSONObject("data").getString("name"))));
         }
         catch(JSONException e){
             Log.e("JSONTest", "Problem reading from the test JSON: ", e);

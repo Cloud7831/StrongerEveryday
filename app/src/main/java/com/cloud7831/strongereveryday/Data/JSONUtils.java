@@ -65,7 +65,7 @@ public final class JSONUtils {
             filename = getFileName(data);
             outputStream = activity.openFileOutput(filename, activity.MODE_PRIVATE);
             outputStream.write(data.toString().getBytes());
-            outputStream.close();   
+            outputStream.close();
         }
         catch(Exception e){
             // TODO: should handle things such as not having enough space to save the data.
