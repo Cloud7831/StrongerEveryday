@@ -2,14 +2,19 @@ package com.cloud7831.strongereveryday.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.widget.ListView;
 
+import com.cloud7831.strongereveryday.Data.JSONUtils;
 import com.cloud7831.strongereveryday.HelperClasses.WorkoutAdapter;
 import com.cloud7831.strongereveryday.ItemCards.ExerciseItemCard;
 import com.cloud7831.strongereveryday.ItemCards.WorkoutItemCard;
 import com.cloud7831.strongereveryday.Objects.Exercise;
 import com.cloud7831.strongereveryday.R;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -25,8 +30,26 @@ public class WorkoutActivity extends AppCompatActivity {
         getSupportActionBar().setElevation(0);
         getSupportActionBar().setTitle("Chest WorkoutActivity"); //TODO: set the title to the name of the workout.
 
+
         //TODO: Delete this. This is just placeholder dummy data so I can see what it looks like with the UI.
+        // All of this code is just test data for now. None of it will be here during the final version.
+        JSONObject testExercise = JSONUtils.createExerciseJSON("Inclined Press");
+
+        Log.i("JSONTest", testExercise.toString());
+
+        JSONUtils.saveJSON(this, testExercise);
+
+        testExercise = JSONUtils.loadJSON(this, "Inclined Press Exercise");
+
+
         final ArrayList<WorkoutItemCard> cards = new ArrayList<WorkoutItemCard>();
+        try{
+            Log.i("JSONTest", testExercise.toString());
+            cards.add(new ExerciseItemCard(new Exercise(testExercise.getString("name"))));
+        }
+        catch(JSONException e){
+            Log.e("JSONTest", "Problem reading from the test JSON: ", e);
+        }
         cards.add(new ExerciseItemCard(new Exercise("Benchpress")));
         cards.add(new ExerciseItemCard(new Exercise("Squats")));
         cards.add(new ExerciseItemCard(new Exercise("Curls")));

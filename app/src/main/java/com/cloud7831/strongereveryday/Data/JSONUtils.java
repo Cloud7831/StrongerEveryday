@@ -43,7 +43,7 @@ public final class JSONUtils {
 
         }
         catch(JSONException e){
-            Log.e("JSONUtils", "Problem saving a JSON: ", e);
+            Log.e("JSONUtils", "Problem loading a JSON: ", e);
             returnJSON = new JSONObject();
         }
         catch(Exception e){
@@ -61,15 +61,11 @@ public final class JSONUtils {
 
         String filename;
         FileOutputStream outputStream;
-
         try{
-            filename = data.getString("name") + " " + data.getString("type");
+            filename = getFileName(data);
             outputStream = activity.openFileOutput(filename, activity.MODE_PRIVATE);
             outputStream.write(data.toString().getBytes());
-            outputStream.close();
-        }
-        catch(JSONException e){
-            Log.e("JSONUtils", "Problem saving a JSON: ", e);
+            outputStream.close();   
         }
         catch(Exception e){
             // TODO: should handle things such as not having enough space to save the data.
@@ -101,7 +97,7 @@ public final class JSONUtils {
             int[] tempReps = new int[]{15, 12, 10};//TODO: placeholder data, remove later.
             setsJSON.put("reps", new JSONArray(tempReps));
             double[] tempWeight = new double[]{150, 95, 142.5};//TODO: placeholder data, remove later.
-            setsJSON.put("weigh", new JSONArray(tempWeight));
+            setsJSON.put("weights", new JSONArray(tempWeight));
             setsJSON.put("max reps", 15); //TODO: placeholder data. Remove later.
             setsJSON.put("min reps", 5); //TODO: placeholder data. Remove later.
             setsJSON.put("weight increment", 2.5); //TODO: placeholder data. Remove later.
@@ -116,4 +112,20 @@ public final class JSONUtils {
         return exerciseJSON;
     }
 
+
+    public static String getFileName(JSONObject json){
+        // Constructs the filename of a JSONObject.
+
+        String filename = "";
+        JSONObject data;
+        try{
+            data = json.getJSONObject("data");
+            filename = data.getString("name") + " " + data.getString("type");
+        }
+        catch(JSONException e){
+            Log.e("JSONUtils", "JSON didn't have a data object.", e);
+            return filename;
+        }
+        return filename;
+    }
 }
