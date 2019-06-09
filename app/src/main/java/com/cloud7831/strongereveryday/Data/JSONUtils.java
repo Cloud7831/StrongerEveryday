@@ -128,4 +128,30 @@ public final class JSONUtils {
         }
         return filename;
     }
+
+
+    /**
+     * Example Exercise JSON format
+     *
+     * {
+     *     "data":{
+     *         "name":STRING,
+     *         "type":STRING,
+     *         "completed":INT,      (could also be a date or string)
+     *         "score":INT,
+     *         "notes":STRING
+     *     },
+     *     "sets":{
+     *         "number of sets":INT,
+     *         "reps":INT[],
+     *         "weights":DOUBLE[],
+     *         "max reps":INT,
+     *         "min reps":INT,
+     *         "weight increment":DOUBLE
+     *     }
+     * }
+     *
+     *
+     *
+     */
 }
