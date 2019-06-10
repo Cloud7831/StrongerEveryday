@@ -35,8 +35,6 @@ public class WorkoutActivity extends AppCompatActivity {
         // All of this code is just test data for now. None of it will be here during the final version.
         JSONObject testExercise = JSONUtils.createExerciseJSON("Inclined Press");
 
-        Log.i("JSONTest", testExercise.toString());
-
         JSONUtils.saveJSON(this, testExercise);
 
         testExercise = JSONUtils.loadJSON(this, "Inclined Press Exercise");
@@ -44,7 +42,6 @@ public class WorkoutActivity extends AppCompatActivity {
 
         final ArrayList<WorkoutItemCard> cards = new ArrayList<WorkoutItemCard>();
         try{
-            Log.i("JSONTest", testExercise.toString());
             cards.add(new ExerciseItemCard(new Exercise(testExercise.getJSONObject("data").getString("name"))));
         }
         catch(JSONException e){

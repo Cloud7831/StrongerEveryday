@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
+import com.cloud7831.strongereveryday.Objects.Exercise;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -124,12 +126,67 @@ public final class JSONUtils {
         }
         catch(JSONException e){
             Log.e("JSONUtils", "JSON didn't have a data object.", e);
-            return filename;
         }
         return filename;
     }
 
+    private Exercise JSONtoExercise(JSONObject json){
 
+        try{
+            JSONObject data = json.getJSONObject("data");
+            assert(data.getString("type").equals("Exercise"));
+            JSONObject sets = json.getJSONObject("sets");
+
+            //TODO: replace all these hardcoded strings as consts.
+            return new Exercise(
+                    data.getString("name"),
+                    data.getInt("completed"),
+                    data.getInt("score"),
+                    data.getString("notes"),
+
+                    sets.getInt("number of sets"),
+                    jsonToIntArray(sets.getJSONArray("reps")),
+                    jsonToDoubleArray(sets.getJSONArray("weights")),
+                    sets.getInt("max reps"),
+                    sets.getInt("min reps"),
+                    sets.getDouble("maxWeight")
+            );
+        }
+        catch(JSONException e){
+            Log.e("JSONtoExercise", "A problem occured when converting. Check that the format of the Exercise JSON is correct.", e);
+        }
+
+
+        return new Exercise();
+    }
+
+    private static Integer[] jsonToIntArray(JSONArray array){
+        if (array == null){
+            return new Integer[0];
+        }
+
+        Integer[] returnArray = new Integer[array.length()];
+
+        for(int i = 0; i < array.length(); i++){
+            returnArray[i] = array.optInt(i);
+        }
+
+        return returnArray;
+    }
+
+    private static Double[] jsonToDoubleArray(JSONArray array){
+        if (array == null){
+            return new Double[0];
+        }
+
+        Double[] returnArray = new Double[array.length()];
+
+        for(int i = 0; i < array.length(); i++){
+            returnArray[i] = array.optDouble(i);
+        }
+
+        return returnArray;
+    }
     /**
      * Example Exercise JSON format
      *
