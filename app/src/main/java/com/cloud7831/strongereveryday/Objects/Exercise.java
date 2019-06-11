@@ -25,12 +25,16 @@ public class Exercise {
     private static final int MAX_REPS_DEFAULT = 15;
 
     private static final double WEIGHT_PER_SET_DEFAULT = 10.0;
+    private static final double WEIGHT_INCREMENT_DEFAULT = 2.5;
+
+    public static final int NULL_VALUE = -1; // Used to signify that the value is null or not applicable. Public because null value ofter affects how the UI needs to update.
 
 
 
 
 
     private String exerciseName; // Name of the exercise.
+    private int lastCompleted; // The amount of days since this exercise has last been completed.
     private String userNotes; // Notes that the user has written for this exercise.
     // Integers for Sets, Reps, and Weight.
 
@@ -42,47 +46,47 @@ public class Exercise {
     private int maxRepsPerSet;      // The maximum amount of reps a user should aim for with this exercise.
     // Weight ------------------------
     private double[] weightPerSet;  // Current weight per set the user uses. Note that only 0.5 lbs increments are allowed.
-    private double maxWeight;       // The most the user has been able to use for this exercise.
+    private double weightIncrement; // The amount of weight to increase this exercise by.
 
     private int score;              // Some exercises have a score associated with them.
 
-    public Exercise lookupExercise(Activity activity, String filename){
-        // Retrieve the exercise's JSON data from the file.
-        JSONObject exerciseJSON = JSONUtils.loadJSON(activity, filename);
-
-        // Convert from JSON to exercise.
-
-
-
-
-
-
-
-
-
-        //        //TODO: use the exercise name to lookup the exercise info from filesystem
-//        this.exerciseName = exerciseName;
-//
-//
-//        //TODO: Delete this later. This is just dummy data for testing
-//        numSets = 3;
-//        repsPerSet = new int[]{12, 10, 8};
-//        weightPerSet = new double[]{162.5, 50, 50};
-//        maxRepsPerSet = 15;
-//        score = 1000;
-
-
-        return new Exercise();
-    }
-
     public Exercise(){
+        //TODO: Delete this later. This is just dummy data for testing
+
+        exerciseName = "Null Exercise - Testing Only";
+        lastCompleted = NULL_VALUE;
+        score = NULL_VALUE;
+        userNotes = "The Exercise() constructer was called with no parameters.";
+
+        numSets = 3;
+        repsPerSet = new int[]{12, 10, 8};
+        weightPerSet = new double[]{162.5, 50, 50};
+        maxRepsPerSet = 15;
+        minRepsPerSet = 6;
+        weightIncrement = 2.5;
 
     }
 
-    public Exercise(String exerciseName, Integer completed, Integer score, String notes, Integer numSets, Integer[] repsPerSet, Double[] weights, Integer maxReps, Integer minReps, Double maxWeight){
+    public Exercise(String exerciseName, Integer completed, Integer score, String notes, Integer numSets, Integer[] repsPerSet, Double[] weights, Integer maxReps, Integer minReps, Double weightInc){
 
         this.exerciseName = exerciseName;
+
+        if(completed == null){
+            lastCompleted = NULL_VALUE; // No value is given to indicate that the exercise has never been completed.
+        }
+        else{
+            lastCompleted = completed;
+        }
+
+        if(score == null){
+            this.score = NULL_VALUE;
+        }
+        else{
+            this.score = score;
+        }
+
         userNotes = notes;
+
         if(numSets == null){
             this.numSets = NUM_SETS_DEFAULT;
         }
@@ -90,17 +94,63 @@ public class Exercise {
             this.numSets = numSets;
         }
 
+        if(repsPerSet == null){
+            this.repsPerSet = new int[numSets]; // create a new array equal to the size of the amount of sets.
+            for(int i = 0; i < numSets; i++){
+                this.repsPerSet[i] = REPS_PER_SET_DEFAULT;
+            }
+        }
+        else{
+            this.repsPerSet = new int[repsPerSet.length];
+            for(int i = 0; i < repsPerSet.length; i++){
+                this.repsPerSet[i] = repsPerSet[i].intValue();
+            }
+        }
 
+        if(weights == null){
+            weightPerSet = new double[numSets]; // create a new array equal to the size of the amount of sets.
+            for(int i = 0; i < numSets; i++){
+                weightPerSet[i] = WEIGHT_PER_SET_DEFAULT;
+            }
+        }
+        else{
+            // TODO: check that the weights array is the same size of the amount of sets.
+            weightPerSet = new double[weights.length];
+            for(int i = 0; i < weights.length; i++){
+                weightPerSet[i] = weights[i].doubleValue();
+            }
+        }
 
-        //TODO: use the exercise name to lookup the exercise info from filesystem
+        if(maxReps == null){
+            maxRepsPerSet = MAX_REPS_DEFAULT;
+        }
+        else{
+            maxRepsPerSet = maxReps;
+        }
 
+        if(minReps == null){
+            minRepsPerSet = MIN_REPS_DEFAULT;
+        }
+        else{
+            minRepsPerSet = minReps;
+        }
 
-        //TODO: Delete this later. This is just dummy data for testing
-        numSets = 3;
-        repsPerSet = new int[]{12, 10, 8};
-        weightPerSet = new double[]{162.5, 50, 50};
-        maxRepsPerSet = 15;
-        score = 1000;
+        if(weightInc == null){
+            weightIncrement = WEIGHT_INCREMENT_DEFAULT;
+        }
+        else{
+            weightIncrement = weightInc;
+        }
+    }
+
+    public Exercise lookupExercise(Activity activity, String filename){
+        // Retrieve the exercise's JSON data from the file.
+        JSONObject exerciseJSON = JSONUtils.loadJSON(activity, filename);
+
+        // Convert from JSON to exercise.
+        Exercise exercise = JSONUtils.JSONtoExercise(exerciseJSON);
+
+        return exercise;
     }
 
     private double roundWeight(double weight){
@@ -139,8 +189,12 @@ public class Exercise {
         return weightPerSet;
     }
 
-    public double getMaxWeight() {
-        return maxWeight;
+    public int getLastCompleted() {
+        return lastCompleted;
+    }
+
+    public double getWeightIncrement() {
+        return weightIncrement;
     }
 
     public int getScore(){
@@ -179,8 +233,17 @@ public class Exercise {
         }
     }
 
-    public void setMaxWeight(double maxWeightAchieved) {
-        maxWeight = roundWeight(maxWeightAchieved);
+    public void setWeightIncrement(double weight) {
+        weightIncrement = roundWeight(weight);
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public void setLastCompleted(int lastCompleted) {
+
+        this.lastCompleted = lastCompleted;
     }
     /* --------------------------------- Getters and Setters End --------------------------------- */
 }

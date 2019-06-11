@@ -130,7 +130,7 @@ public final class JSONUtils {
         return filename;
     }
 
-    private Exercise JSONtoExercise(JSONObject json){
+    public static Exercise JSONtoExercise(JSONObject json){
 
         try{
             JSONObject data = json.getJSONObject("data");
@@ -138,6 +138,7 @@ public final class JSONUtils {
             JSONObject sets = json.getJSONObject("sets");
 
             //TODO: replace all these hardcoded strings as consts.
+            //TODO: preform logic checks that ensure the data is correct/not missing.
             return new Exercise(
                     data.getString("name"),
                     data.getInt("completed"),
@@ -149,7 +150,7 @@ public final class JSONUtils {
                     jsonToDoubleArray(sets.getJSONArray("weights")),
                     sets.getInt("max reps"),
                     sets.getInt("min reps"),
-                    sets.getDouble("maxWeight")
+                    sets.getDouble("weight increment")
             );
         }
         catch(JSONException e){
