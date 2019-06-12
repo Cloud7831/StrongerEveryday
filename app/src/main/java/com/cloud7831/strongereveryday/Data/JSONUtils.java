@@ -88,7 +88,7 @@ public final class JSONUtils {
             dataJSON.put("name", name);
             dataJSON.put("type", EXERCISE_JSON_TYPE); // Signifies the JSON is an exercise.
             dataJSON.put("completed", 0);//TODO: value should be a date. 0 is a placeholder value.
-            dataJSON.put("score", 0);//TODO: score is only used in some exercises. 0 is a temp placeholder.
+            dataJSON.put("score", 1000);//TODO: score is only used in some exercises. The Value is a temp placeholder.
             dataJSON.put("notes", "These are the user's notes."); //TODO: placeholder data. Remove later.
 
             exerciseJSON.put("data", dataJSON);

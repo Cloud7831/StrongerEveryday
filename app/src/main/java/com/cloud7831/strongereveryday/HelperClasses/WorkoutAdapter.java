@@ -3,8 +3,6 @@ package com.cloud7831.strongereveryday.HelperClasses;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Typeface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,16 +11,14 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.cloud7831.strongereveryday.Data.WorkoutContract;
 import com.cloud7831.strongereveryday.Data.WorkoutContract.WorkoutCardType;
 import com.cloud7831.strongereveryday.ItemCards.ExerciseItemCard;
 import com.cloud7831.strongereveryday.ItemCards.WorkoutItemCard;
+import com.cloud7831.strongereveryday.Objects.Exercise;
 import com.cloud7831.strongereveryday.R;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.Arrays;
+
 
 public class WorkoutAdapter extends ArrayAdapter<WorkoutItemCard>{
 
@@ -55,7 +51,14 @@ public class WorkoutAdapter extends ArrayAdapter<WorkoutItemCard>{
                 // All the logic for the ExerciseItemCard
                 ExerciseItemCard card = (ExerciseItemCard) currentCard;
                 TextView scoreView = (TextView) listItemView.findViewById(R.id.exercise_score_text_view);
-                scoreView.setText(Integer.toString(card.getScore()));
+                int score = card.getScore();
+                if(score == Exercise.NULL_VALUE){
+                    scoreView.setVisibility(View.GONE);
+                }
+                else{
+                    scoreView.setText(Integer.toString(score));
+                }
+
 
                 if(isNewCard){
                     // We only want to create the table once when the card is make the first time.
