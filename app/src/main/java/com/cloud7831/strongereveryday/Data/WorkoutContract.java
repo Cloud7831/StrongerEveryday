@@ -11,6 +11,8 @@ public final class WorkoutContract {
 
     public enum WorkoutCardType{
         EXERCISE,
+        TITLE,
+        ADD_EXERCISE,
         VIDEO,
         ENDCARD;
     }

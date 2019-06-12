@@ -43,15 +43,16 @@ public class WorkoutAdapter extends ArrayAdapter<WorkoutItemCard>{
             //TODO: an exercise card should be an abstract class. Each exercise card needs to have certain functions, such as getName()
             //TODO: so that I don't need to have a bunch of if/else statements to do certain actions depending on the type of card I have.
             if(currentCard.hasName()){
-                TextView nameView = (TextView) listItemView.findViewById(R.id.exercise_name_text_view);
+                TextView nameView = (TextView) listItemView.findViewById(R.id.name_text_view);
                 nameView.setText(currentCard.getName());
             }
 
+            // TODO: Use a switch statement to cycle through the WorkoutCardTypes.
             if(currentCard.getType() == WorkoutCardType.EXERCISE){
                 // All the logic for the ExerciseItemCard
                 ExerciseItemCard card = (ExerciseItemCard) currentCard;
                 TextView scoreView = (TextView) listItemView.findViewById(R.id.exercise_score_text_view);
-                int score = card.getScore();
+                int score = card.getExercise().getScore();
                 if(score == Exercise.NULL_VALUE){
                     scoreView.setVisibility(View.GONE);
                 }
@@ -77,9 +78,9 @@ public class WorkoutAdapter extends ArrayAdapter<WorkoutItemCard>{
             TableLayout table = (TableLayout) listItemView.findViewById(R.id.exercise_table_view);
 
             // Create a row for each set. Add in the info for reps and weight
-            double[] weights = card.getWeights();
-            int[] reps = card.getReps();
-            for(int i = 0; i < card.getNumSets(); i++){
+            double[] weights = card.getExercise().getWeightPerSet();
+            int[] reps = card.getExercise().getRepsPerSet();
+            for(int i = 0; i < card.getExercise().getNumSets(); i++){
 
                 final int TEXT_PADDING = 4; // padding for top, bottom and right.
 

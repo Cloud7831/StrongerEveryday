@@ -47,7 +47,6 @@ public class WorkoutActivity extends AppCompatActivity {
 
         WorkoutAdapter workoutAdapter = new WorkoutAdapter(this, cards);
 
-        //TODO: set the listView object in the workout.xml
         ListView listView = (ListView) findViewById(R.id.list);
 
         listView.setAdapter(workoutAdapter);

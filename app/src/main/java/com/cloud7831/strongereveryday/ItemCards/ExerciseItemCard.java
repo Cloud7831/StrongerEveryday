@@ -8,17 +8,11 @@ public class ExerciseItemCard implements WorkoutItemCard {
 
     private String name;
     private Exercise exer;
-    private int numSets;
-    private int[] reps;
-    private double[] weights;
 
 
     public ExerciseItemCard(Exercise exercise){
         name = exercise.getExerciseName();
         exer = exercise;
-        numSets = exercise.getNumSets();
-        weights = exercise.getWeightPerSet();
-        reps = exercise.getRepsPerSet();
     }
 
 
@@ -37,23 +31,7 @@ public class ExerciseItemCard implements WorkoutItemCard {
         return true;
     }
 
-    public int getScore(){
-        return exer.getScore();
-    }
-
-    public int getNumSets(){
-        return numSets;
-    }
-
     public Exercise getExercise() {
         return exer;
-    }
-
-    public int[] getReps() {
-        return reps;
-    }
-
-    public double[] getWeights() {
-        return weights;
     }
 }
