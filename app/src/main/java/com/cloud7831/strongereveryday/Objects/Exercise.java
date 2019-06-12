@@ -143,7 +143,7 @@ public class Exercise {
         }
     }
 
-    public Exercise lookupExercise(Activity activity, String filename){
+    public static Exercise lookupExercise(Activity activity, String filename){
         // Retrieve the exercise's JSON data from the file.
         JSONObject exerciseJSON = JSONUtils.loadJSON(activity, filename);
 

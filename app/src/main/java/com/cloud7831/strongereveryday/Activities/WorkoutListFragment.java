@@ -63,8 +63,6 @@ public class WorkoutListFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Intent intent = new Intent(getContext(), WorkoutActivity.class);
 
-                //Uri currentPetUri = ContentUris.withAppendedId(PetEntry.CONTENT_URI, id);
-                //intent.setData(currentPetUri);
                 //TODO: setup URIs for workouts.
                 startActivity(intent);
             }

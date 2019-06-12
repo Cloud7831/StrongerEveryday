@@ -33,26 +33,15 @@ public class WorkoutActivity extends AppCompatActivity {
 
         //TODO: Delete this. This is just placeholder dummy data so I can see what it looks like with the UI.
         // All of this code is just test data for now. None of it will be here during the final version.
-        JSONObject testExercise = JSONUtils.createExerciseJSON("Inclined Press");
+        JSONUtils.saveJSON(this, JSONUtils.createExerciseJSON("Inclined Press"));
 
-        JSONUtils.saveJSON(this, testExercise);
-
-        testExercise = JSONUtils.loadJSON(this, "Inclined Press Exercise");
+        Exercise testExercise = Exercise.lookupExercise(this, "Inclined Press Exercise");
 
 
         final ArrayList<WorkoutItemCard> cards = new ArrayList<WorkoutItemCard>();
-        try{
-            cards.add(new ExerciseItemCard(new Exercise(testExercise.getJSONObject("data").getString("name"))));
-        }
-        catch(JSONException e){
-            Log.e("JSONTest", "Problem reading from the test JSON: ", e);
-        }
-        cards.add(new ExerciseItemCard(new Exercise("Benchpress")));
-        cards.add(new ExerciseItemCard(new Exercise("Squats")));
-        cards.add(new ExerciseItemCard(new Exercise("Curls")));
-        cards.add(new ExerciseItemCard(new Exercise("Rows")));
-        cards.add(new ExerciseItemCard(new Exercise("EZ Bar Curls")));
-        cards.add(new ExerciseItemCard(new Exercise("Inclined Press")));
+        cards.add(new ExerciseItemCard(testExercise));
+        cards.add(new ExerciseItemCard(new Exercise()));
+        cards.add(new ExerciseItemCard(new Exercise("Squats", null, null, "Test notes - not yet implemented.", 4, null, null, null, null, null)));
         //TODO: Delete -------------------------------------------------------------------------------
 
 
