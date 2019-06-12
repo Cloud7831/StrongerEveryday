@@ -1,6 +1,5 @@
 package com.cloud7831.strongereveryday.ItemCards;
 
-import com.cloud7831.strongereveryday.Data.WorkoutContract;
 import com.cloud7831.strongereveryday.Data.WorkoutContract.WorkoutCardType;
 import com.cloud7831.strongereveryday.Objects.Exercise;
 

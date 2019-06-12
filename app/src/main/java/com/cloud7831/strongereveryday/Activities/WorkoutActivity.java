@@ -9,6 +9,7 @@ import android.widget.ListView;
 import com.cloud7831.strongereveryday.Data.JSONUtils;
 import com.cloud7831.strongereveryday.HelperClasses.WorkoutAdapter;
 import com.cloud7831.strongereveryday.ItemCards.ExerciseItemCard;
+import com.cloud7831.strongereveryday.ItemCards.TitleItemCard;
 import com.cloud7831.strongereveryday.ItemCards.WorkoutItemCard;
 import com.cloud7831.strongereveryday.Objects.Exercise;
 import com.cloud7831.strongereveryday.R;
@@ -39,6 +40,7 @@ public class WorkoutActivity extends AppCompatActivity {
 
 
         final ArrayList<WorkoutItemCard> cards = new ArrayList<WorkoutItemCard>();
+        cards.add(new TitleItemCard("Chest"));
         cards.add(new ExerciseItemCard(testExercise));
         cards.add(new ExerciseItemCard(new Exercise()));
         cards.add(new ExerciseItemCard(new Exercise("Squats", null, null, "Test notes - not yet implemented.", 4, null, null, null, null, null)));

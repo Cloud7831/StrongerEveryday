@@ -13,7 +13,7 @@
         android:layout_weight="0"
         android:text="This is the Home Fragment\nFor now it's just blank!"
         android:textAlignment="center"
-        android:textColor="@color/darkmodeLightText"
+        android:textColor="@color/darkmodeTextLight"
         android:textSize="30sp" />
 
 </LinearLayout>

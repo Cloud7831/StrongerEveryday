@@ -1,8 +1,8 @@
 package com.cloud7831.strongereveryday.HelperClasses;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +11,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.cloud7831.strongereveryday.Data.WorkoutContract;
 import com.cloud7831.strongereveryday.Data.WorkoutContract.WorkoutCardType;
 import com.cloud7831.strongereveryday.ItemCards.ExerciseItemCard;
 import com.cloud7831.strongereveryday.ItemCards.WorkoutItemCard;
@@ -32,18 +33,32 @@ public class WorkoutAdapter extends ArrayAdapter<WorkoutItemCard>{
 
             WorkoutItemCard currentCard = getItem(position);
             boolean isNewCard = false;
+            WorkoutContract.WorkoutCardType cardType = currentCard.getType();
 
-            //TODO: I probably need a different layout per card type, and then inflate the layout based on the type of card.
             if(listItemView == null){
-                // This is the first time making the card.
+                // This is the first time making this item card or the item card was recycled and needs to be recreated.
                 isNewCard = true;
-                listItemView = LayoutInflater.from(getContext()).inflate(R.layout.exercise_card_layout, parent, false);
+
+                // The layout for the card type needs to be created based on the type.
+                switch(cardType){
+                    case TITLE:
+                        listItemView = LayoutInflater.from(getContext()).inflate(R.layout.title_card_layout, parent, false);
+                        break;
+                    case EXERCISE:
+                        listItemView = LayoutInflater.from(getContext()).inflate(R.layout.exercise_card_layout, parent, false);
+                        break;
+                    default:
+                        Log.e("WorkoutAdapter", "Unknown card type when creating view.");
+                        return listItemView;
+                }
             }
+
+            // Fill in the details of the item card.
 
             //TODO: an exercise card should be an abstract class. Each exercise card needs to have certain functions, such as getName()
             //TODO: so that I don't need to have a bunch of if/else statements to do certain actions depending on the type of card I have.
             if(currentCard.hasName()){
-                TextView nameView = (TextView) listItemView.findViewById(R.id.name_text_view);
+                TextView nameView = listItemView.findViewById(R.id.name_text_view);
                 nameView.setText(currentCard.getName());
             }
 
@@ -68,7 +83,7 @@ public class WorkoutAdapter extends ArrayAdapter<WorkoutItemCard>{
                 }
             }
 
-            return listItemView;//We only return one view, and that's listItemView which contains all the other views we want. I think?
+            return listItemView; // Return the view for the Item Card we just created.
         }
 
 

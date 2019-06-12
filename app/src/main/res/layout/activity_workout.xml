@@ -12,7 +12,6 @@
         android:orientation="vertical"
         android:divider="@null"
         android:background="@color/darkmodeBackground"
-        android:padding="8dp"
         />
 
 

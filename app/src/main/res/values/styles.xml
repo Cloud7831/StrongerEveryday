@@ -9,10 +9,10 @@
     </style>
     <!-- Style for the tabs in the MainActivity-->
     <style name="MainTabLayout" parent="Widget.Design.TabLayout">
-        <item name="tabTextColor">@color/darkmodeDarkText</item>
+        <item name="tabTextColor">@color/darkmodeTextDark</item>
         <item name="tabBackground">@color/darkmodePrimary</item>
         <item name="tabIndicatorColor">@color/white</item>
-        <item name="tabSelectedTextColor">@color/darkmodeLightText</item>
+        <item name="tabSelectedTextColor">@color/darkmodeTextLight</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
@@ -20,6 +20,6 @@
     <!-- Style for entries in the exercise table layout-->
     <style name="ExerciseTableEntry" parent="">
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/darkmodeDarkText</item>
+        <item name="android:textColor">@color/darkmodeTextDark</item>
     </style>
 </resources>
