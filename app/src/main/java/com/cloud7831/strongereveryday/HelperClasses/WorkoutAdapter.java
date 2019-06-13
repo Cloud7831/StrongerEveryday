@@ -16,6 +16,7 @@ import com.cloud7831.strongereveryday.Data.WorkoutContract.WorkoutCardType;
 import com.cloud7831.strongereveryday.ItemCards.ExerciseItemCard;
 import com.cloud7831.strongereveryday.ItemCards.WorkoutItemCard;
 import com.cloud7831.strongereveryday.Objects.Exercise;
+import com.cloud7831.strongereveryday.OnClickListeners.ExerciseNotesToggleOnClickListener;
 import com.cloud7831.strongereveryday.R;
 
 import java.util.ArrayList;
@@ -55,32 +56,49 @@ public class WorkoutAdapter extends ArrayAdapter<WorkoutItemCard>{
 
             // Fill in the details of the item card.
 
-            //TODO: an exercise card should be an abstract class. Each exercise card needs to have certain functions, such as getName()
-            //TODO: so that I don't need to have a bunch of if/else statements to do certain actions depending on the type of card I have.
             if(currentCard.hasName()){
                 TextView nameView = listItemView.findViewById(R.id.name_text_view);
                 nameView.setText(currentCard.getName());
             }
 
             // TODO: Use a switch statement to cycle through the WorkoutCardTypes.
-            if(currentCard.getType() == WorkoutCardType.EXERCISE){
-                // All the logic for the ExerciseItemCard
-                ExerciseItemCard card = (ExerciseItemCard) currentCard;
-                TextView scoreView = (TextView) listItemView.findViewById(R.id.exercise_score_text_view);
-                int score = card.getExercise().getScore();
-                if(score == Exercise.NULL_VALUE){
-                    scoreView.setVisibility(View.GONE);
-                }
-                else{
-                    scoreView.setText(Integer.toString(score));
-                }
+            switch (cardType){
+                case EXERCISE:
+                    // All the logic for the ExerciseItemCard
+                    ExerciseItemCard card = (ExerciseItemCard) currentCard;
+
+                    Exercise exercise = card.getExercise();
 
 
-                if(isNewCard){
-                    // We only want to create the table once when the card is make the first time.
-                    // Otherwise I get a bug where it creates infinite rows if I scroll up and down.
-                    createExerciseTable(this.getContext(), listItemView, card);
-                }
+                    // Set the text in the notesView. Notes are not visible by default.
+                    TextView notesView = listItemView.findViewById(R.id.notes_text_view);
+                    notesView.setText(exercise.getUserNotes());
+                    notesView.setVisibility(View.GONE);
+
+                    // Set the exercise to toggle the visibility of the Exercises notes when the title is clicked.
+                    // TODO: may want to test if it's better to use the adapter's "onItemClickListener" instead.
+                    TextView nameView = listItemView.findViewById(R.id.name_text_view);
+                    nameView.setClickable(true);
+                    nameView.setOnClickListener(new ExerciseNotesToggleOnClickListener(card.getExercise(), notesView));
+
+                    TextView scoreView = listItemView.findViewById(R.id.exercise_score_text_view);
+                    int score = card.getExercise().getScore();
+                    if(score == Exercise.NULL_VALUE){
+                        scoreView.setVisibility(View.GONE);
+                    }
+                    else{
+                        scoreView.setText(Integer.toString(score));
+                    }
+
+
+                    if(isNewCard){
+                        // We only want to create the table once when the card is make the first time.
+                        // Otherwise I get a bug where it creates infinite rows if I scroll up and down.
+                        createExerciseTable(this.getContext(), listItemView, card);
+                    }
+                    break;
+                default:
+                    break;
             }
 
             return listItemView; // Return the view for the Item Card we just created.

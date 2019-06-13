@@ -58,6 +58,19 @@
 
         </TableLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/notes_text_view"
+            android:textColor="@color/darkmodeTextDark"
+            android:textSize="16sp"
+            android:paddingLeft="70px"
+            android:paddingStart="70px"
+            android:paddingRight="8dp"
+            android:paddingEnd="8dp"
+            tools:text="This is where the notes will go"
+            />
+
     </LinearLayout>
 
 </RelativeLayout>

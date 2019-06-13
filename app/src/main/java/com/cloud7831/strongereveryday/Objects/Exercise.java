@@ -1,15 +1,10 @@
 package com.cloud7831.strongereveryday.Objects;
 
 import android.app.Activity;
-import android.util.Log;
 
 import com.cloud7831.strongereveryday.Data.JSONUtils;
-import com.cloud7831.strongereveryday.Data.WorkoutContract;
 
-import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.FileInputStream;
 
 public class Exercise {
     // Exercise objects contain all the information about a particular exercise.
@@ -35,7 +30,9 @@ public class Exercise {
 
     private String exerciseName; // Name of the exercise.
     private int lastCompleted; // The amount of days since this exercise has last been completed.
+
     private String userNotes; // Notes that the user has written for this exercise.
+    private boolean areNotesVisible;
     // Integers for Sets, Reps, and Weight.
 
     // Sets --------------------------
@@ -64,6 +61,7 @@ public class Exercise {
         maxRepsPerSet = 15;
         minRepsPerSet = 6;
         weightIncrement = 2.5;
+        areNotesVisible = false;
 
     }
 
@@ -141,6 +139,9 @@ public class Exercise {
         else{
             weightIncrement = weightInc;
         }
+
+        // For now I think notes should only be visible when clicked on.
+        areNotesVisible = false;
     }
 
     public static Exercise lookupExercise(Activity activity, String filename){
@@ -201,6 +202,10 @@ public class Exercise {
         return score;
     }
 
+    public boolean getAreNotesVisible() {
+        return areNotesVisible;
+    }
+
     public void setExerciseName(String exerciseName) {
         this.exerciseName = exerciseName;
     }
@@ -244,6 +249,10 @@ public class Exercise {
     public void setLastCompleted(int lastCompleted) {
 
         this.lastCompleted = lastCompleted;
+    }
+
+    public void setAreNotesVisible(boolean b){
+        areNotesVisible = b;
     }
     /* --------------------------------- Getters and Setters End --------------------------------- */
 }
