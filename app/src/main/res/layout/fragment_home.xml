@@ -15,5 +15,9 @@
         android:textAlignment="center"
         android:textColor="@color/darkmodeTextLight"
         android:textSize="30sp" />
+    
+    <android.support.design.widget.TextInputLayout
+        android:layout_width=""
+        android:layout_height=""></android.support.design.widget.TextInputLayout>
 
 </LinearLayout>
