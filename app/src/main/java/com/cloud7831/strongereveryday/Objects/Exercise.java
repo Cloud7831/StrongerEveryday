@@ -1,6 +1,7 @@
 package com.cloud7831.strongereveryday.Objects;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 
 import com.cloud7831.strongereveryday.Data.JSONUtils;
 
@@ -26,7 +27,7 @@ public class Exercise {
 
 
 
-
+    private int id;
 
     private String exerciseName; // Name of the exercise.
     private int lastCompleted; // The amount of days since this exercise has last been completed.
@@ -50,6 +51,7 @@ public class Exercise {
     public Exercise(){
         //TODO: Delete this later. This is just dummy data for testing
 
+        id = NULL_VALUE;
         exerciseName = "Null Exercise - Testing Only";
         lastCompleted = NULL_VALUE;
         score = NULL_VALUE;
@@ -65,9 +67,10 @@ public class Exercise {
 
     }
 
-    public Exercise(String exerciseName, Integer completed, Integer score, String notes, Integer numSets, Integer[] repsPerSet, Double[] weights, Integer maxReps, Integer minReps, Double weightInc){
+    public Exercise(Integer id, String exerciseName, Integer completed, Integer score, String notes, Integer numSets, Integer[] repsPerSet, Double[] weights, Integer maxReps, Integer minReps, Double weightInc){
 
-        this.exerciseName = exerciseName;
+        this.id = id; // Can't be null.
+        this.exerciseName = exerciseName; // Can't be null.
 
         if(completed == null){
             lastCompleted = NULL_VALUE; // No value is given to indicate that the exercise has never been completed.
@@ -164,6 +167,10 @@ public class Exercise {
     /* ----------------------------------- Getters and Setters ----------------------------------- */
     public String getExerciseName() {
         return exerciseName;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getUserNotes() {

@@ -43,7 +43,7 @@ public class WorkoutActivity extends AppCompatActivity {
         cards.add(new TitleItemCard("Chest"));
         cards.add(new ExerciseItemCard(testExercise));
         cards.add(new ExerciseItemCard(new Exercise()));
-        cards.add(new ExerciseItemCard(new Exercise("Squats", null, null, "Test notes - not yet implemented.", 4, null, null, null, null, null)));
+        cards.add(new ExerciseItemCard(new Exercise(null, "Squats", null, null, "Test notes - not yet implemented.", 4, null, null, null, null, null)));
         //TODO: Delete -------------------------------------------------------------------------------
 
 

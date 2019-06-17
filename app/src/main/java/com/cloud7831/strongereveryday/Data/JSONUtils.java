@@ -23,7 +23,6 @@ public final class JSONUtils {
     }
 
 
-
     //TODO: saving and loading should be done as an async task (loader).
     public static JSONObject loadJSON(Activity activity, String filename){
         //TODO: Take in the filename of a json file and then convert it to a JSONObject.
@@ -85,6 +84,7 @@ public final class JSONUtils {
             // Create the meta data
             // This data is used in workouts and other elements of the UI
             JSONObject dataJSON = new JSONObject();
+            dataJSON.put("id", -1); // negative id, because this is a test json.
             dataJSON.put("name", name);
             dataJSON.put("type", EXERCISE_JSON_TYPE); // Signifies the JSON is an exercise.
             dataJSON.put("completed", 0);//TODO: value should be a date. 0 is a placeholder value.
@@ -140,6 +140,7 @@ public final class JSONUtils {
             //TODO: replace all these hardcoded strings as consts.
             //TODO: preform logic checks that ensure the data is correct/not missing.
             return new Exercise(
+                    data.getInt("id"),
                     data.getString("name"),
                     data.getInt("completed"),
                     data.getInt("score"),
@@ -193,6 +194,7 @@ public final class JSONUtils {
      *
      * {
      *     "data":{
+     *         "id":INT,
      *         "name":STRING,
      *         "type":STRING,
      *         "completed":INT,      (could also be a date or string)
