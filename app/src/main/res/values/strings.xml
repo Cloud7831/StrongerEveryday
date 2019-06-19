@@ -14,10 +14,21 @@
     <string name="exercise_last_completed">Last completed:</string>
 
     <!-- Text on the begin workout button [CHAR LIMIT=40] -->
-    <string name="begin_workout">Begin workout</string>
+    <string name="begin_workout">Begin Workout</string>
 
     <!-- Text on the "end workout" button [CHAR LIMIT=40] -->
-    <string name="end_workout">End workout</string>
+    <string name="end_workout">End Workout</string>
 
+    <!-- Text for the title of the Create Workout activity [CHAR LIMIT=40] -->
+    <string name="workout_editor_activity_title_create_workout">Create Workout</string>
+
+    <!-- Text on the save button [CHAR LIMIT=15] -->
+    <string name="action_save">Save</string>
+
+    <!-- Text for the "delete" menu option [CHAR LIMIT=15] -->
+    <string name="action_delete">Delete</string>
+
+    <!-- Text for the "no" option the negative confirmation button [CHAR LIMIT=15] -->
+    <string name="negative_button_no">No</string>
 
 </resources>

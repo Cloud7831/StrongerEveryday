@@ -69,7 +69,12 @@ public class Exercise {
 
     public Exercise(Integer id, String exerciseName, Integer completed, Integer score, String notes, Integer numSets, Integer[] repsPerSet, Double[] weights, Integer maxReps, Integer minReps, Double weightInc){
 
-        this.id = id; // Can't be null.
+        if(id == null){
+            this.id = NULL_VALUE;
+        }
+        else{
+            this.id = id;
+        }
         this.exerciseName = exerciseName; // Can't be null.
 
         if(completed == null){
