@@ -25,6 +25,7 @@ public class StrongerDbHelper extends SQLiteOpenHelper {
         String SQL_CREATE_WORKOUTS_TABLE = "CREATE TABLE " + WorkoutEntry.TABLE_NAME + "{"
                                                            + WorkoutEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                                                            + WorkoutEntry.WORKOUT_NAME + "TEXT NOT NULL, "
+                                                           + WorkoutEntry.WORKOUT_JSON  + "TEXT NOT NULL"
                                                            + WorkoutEntry.WORKOUT_LAST_COMPLETED + "INTEGER NOT NULL DEFAULT -1);"; // Last completed = -1 days means it has never been completed.
         db.execSQL(SQL_CREATE_WORKOUTS_TABLE);
 

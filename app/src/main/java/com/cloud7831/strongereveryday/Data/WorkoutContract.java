@@ -30,6 +30,7 @@ public final class WorkoutContract {
 
         public final static String _ID = BaseColumns._ID;
         public final static String WORKOUT_NAME = "name";
+        public final static String WORKOUT_JSON = "json"; // The name of the json file.
         public final static String WORKOUT_LAST_COMPLETED = "last completed";
 
     }

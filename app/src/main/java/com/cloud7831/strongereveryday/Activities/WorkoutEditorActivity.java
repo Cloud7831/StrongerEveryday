@@ -35,7 +35,7 @@ public class WorkoutEditorActivity extends AppCompatActivity {
         else{
             editMode = true;
             // This is an existing workout, so change the app bar to say "Edit [WorkoutName]".
-            setTitle("Edit Workout");
+            setTitle("Edit Workout"); //TODO: Workout should be replaced with the workout's name.
         }
     }
 
