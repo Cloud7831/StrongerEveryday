@@ -4,11 +4,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.cloud7831.strongereveryday.R;
 
@@ -37,6 +39,16 @@ public class WorkoutEditorActivity extends AppCompatActivity {
             // This is an existing workout, so change the app bar to say "Edit [WorkoutName]".
             setTitle("Edit Workout"); //TODO: Workout should be replaced with the workout's name.
         }
+
+        // Set up the Create Workout Floating Action Button
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO: set up the FAB so that when clicked, it shows the options of what you can add to the workout
+                //TODO: ie, add an exercise, title card, video card, etc.
+            }
+        });
     }
 
     @Override
