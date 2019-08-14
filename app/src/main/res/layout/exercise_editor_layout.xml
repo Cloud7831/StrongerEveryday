@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_margin"
+    android:background="@color/darkmodeBackground">
+
+    <!-- Name category -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Label -->
+        <TextView
+            android:text="@string/exercise_editor_category_name"
+            style="@style/ExerciseEditorCategoryStyle" />
+
+        <!-- Input field -->
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:paddingLeft="4dp"
+            android:orientation="vertical">
+
+            <!-- Name field -->
+            <EditText
+                android:id="@+id/edit_exercise_name"
+                android:hint="@string/hint_exercise_name"
+                android:inputType="textCapWords"
+                style="@style/ExerciseEditorFieldStyle" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Exercise Category category -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Label -->
+        <TextView
+            android:text="@string/exercise_editor_category_exercise_category"
+            style="@style/ExerciseEditorCategoryStyle" />
+
+        <!-- Input field -->
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:paddingLeft="4dp"
+            android:orientation="vertical">
+
+            <!-- Name field -->
+            <EditText
+                android:id="@+id/edit_exercise_category"
+                android:hint="@string/hint_exercise_category"
+                android:inputType="textCapWords"
+                style="@style/ExerciseEditorFieldStyle" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

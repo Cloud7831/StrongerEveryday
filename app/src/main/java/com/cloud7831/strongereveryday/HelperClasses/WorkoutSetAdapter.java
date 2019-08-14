@@ -37,7 +37,11 @@ public class WorkoutSetAdapter extends ArrayAdapter<WorkoutSet> {
         TextView daysTextView = (TextView) listItemView.findViewById(R.id.workout_days_text_view);
 
         int days = currentWorkout.getDaysLastCompleted();
-        if(days == 0){
+        if(days < 0){
+            // Negative means the workout has never been completed.
+            daysTextView.setText("This workout has never been completed.");
+        }
+        else if(days == 0){
             daysTextView.setText("Last completed today.");
         }
         else if(days == 1){

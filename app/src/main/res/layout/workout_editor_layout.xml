@@ -5,10 +5,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <ListView
+        android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textAlignment="center"
-        android:text="This is the workout editor activity."/>
+        android:drawSelectorOnTop="true"
+        android:orientation="vertical"
+        android:divider="@null"
+        android:background="@color/darkmodeBackground"
+        />
 
 </LinearLayout>

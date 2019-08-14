@@ -22,6 +22,9 @@
     <!-- Text for the title of the Create Workout activity [CHAR LIMIT=40] -->
     <string name="workout_editor_activity_title_create_workout">Create Workout</string>
 
+    <!-- Text for the title of the Create Exercise activity [CHAR LIMIT=40] -->
+    <string name="exercise_editor_activity_title_create_exercise">Create Exercise</string>
+
     <!-- Text on the save button [CHAR LIMIT=15] -->
     <string name="action_save">Save</string>
 
@@ -30,5 +33,18 @@
 
     <!-- Text for the "no" option the negative confirmation button [CHAR LIMIT=15] -->
     <string name="negative_button_no">No</string>
+
+
+    <!-- Exercise Editor Activity -->
+
+    <!-- Name of the name category in the exercise editor [CHAR LIMIT=15] -->
+    <string name="exercise_editor_category_name">Name</string>
+    <!-- Name of the exercise category category in the exercise editor [CHAR LIMIT=15] -->
+    <string name="exercise_editor_category_exercise_category">Category</string>
+
+    <!-- Text hint for name field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_exercise_name">Benchpress/Squats/Curls/...</string>
+    <!-- Text hint for exercise category field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_exercise_category">Chest/Full Body/Cardio/...</string>
 
 </resources>
