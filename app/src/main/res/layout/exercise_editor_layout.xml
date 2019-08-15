@@ -8,8 +8,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="@dimen/activity_margin"
+        android:paddingLeft="@dimen/activity_margin"
+        android:paddingRight="@dimen/activity_margin"
+        android:paddingBottom="4dp"
+        android:paddingTop="8dp"
         android:background="@color/darkmodeBackground">
+
+
+        <!-- Overview Label -->
+        <TextView
+            style="@style/ExerciseEditorLabelStyle"
+            android:text="@string/exercise_editor_title_overview"
+            />
 
         <!-- Name category -->
         <LinearLayout
@@ -19,7 +29,7 @@
 
             <!-- Label -->
             <TextView
-                android:text="@string/exercise_editor_category_name"
+                android:text="@string/exercise_editor_lable_name"
                 style="@style/ExerciseEditorCategoryStyle" />
 
             <!-- Input field -->
@@ -43,11 +53,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
             android:orientation="horizontal">
 
             <!-- Label -->
             <TextView
-                android:text="@string/exercise_editor_category_exercise_category"
+                android:text="@string/exercise_editor_lable_exercise_category"
                 style="@style/ExerciseEditorCategoryStyle" />
 
             <!-- Input field -->
@@ -66,6 +77,132 @@
                     style="@style/ExerciseEditorFieldStyle" />
             </LinearLayout>
         </LinearLayout>
+
+        <!-- Overview Label -->
+        <TextView
+            style="@style/ExerciseEditorLabelStyle"
+            android:text="@string/exercise_editor_title_details"
+            />
+
+        <!-- Units category -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Label -->
+            <TextView
+                android:text="@string/exercise_editor_lable_units"
+                style="@style/ExerciseEditorCategoryStyle" />
+
+            <!-- Input field -->
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:paddingLeft="4dp"
+                android:orientation="vertical">
+
+                <!-- Units drop-down spinner -->
+                <Spinner
+                    android:id="@+id/spinner_units"
+                    android:layout_height="48dp"
+                    android:layout_width="wrap_content"
+                    android:paddingRight="16dp"
+                    android:spinnerMode="dropdown"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Number of Sets category -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Label -->
+            <TextView
+                android:text="@string/exercise_editor_lable_num_sets"
+                style="@style/ExerciseEditorCategoryStyle" />
+
+            <!-- Input field -->
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:paddingLeft="4dp"
+                android:orientation="horizontal">
+
+                <!-- Sets field -->
+                <EditText
+                    android:id="@+id/edit_exercise_num_sets"
+                    android:hint="@string/hint_exercise_num_sets"
+                    android:inputType="number"
+                    style="@style/ExerciseEditorFieldStyle"
+                    android:layout_width="wrap_content"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Minimum Number of Reps category -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Label -->
+            <TextView
+                android:text="@string/exercise_editor_lable_min_num_reps"
+                style="@style/ExerciseEditorCategoryStyle" />
+
+            <!-- Input field -->
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:paddingLeft="4dp"
+                android:orientation="horizontal">
+
+                <!-- Sets field -->
+                <EditText
+                    android:id="@+id/edit_exercise_min_num_reps"
+                    android:hint="@string/hint_exercise_min_num_reps"
+                    android:inputType="number"
+                    style="@style/ExerciseEditorFieldStyle"
+                    android:layout_width="wrap_content"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Maximum Number of Reps category -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Label -->
+            <TextView
+                android:text="@string/exercise_editor_lable_max_num_reps"
+                style="@style/ExerciseEditorCategoryStyle" />
+
+            <!-- Input field -->
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:paddingLeft="4dp"
+                android:orientation="horizontal">
+
+                <!-- Sets field -->
+                <EditText
+                    android:id="@+id/edit_exercise_max_num_reps"
+                    android:hint="@string/hint_exercise_max_num_reps"
+                    android:inputType="number"
+                    style="@style/ExerciseEditorFieldStyle"
+                    android:layout_width="wrap_content"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
 
     </LinearLayout>
 

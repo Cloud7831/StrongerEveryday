@@ -35,16 +35,38 @@
     <string name="negative_button_no">No</string>
 
 
-    <!-- Exercise Editor Activity -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~ Exercise Editor Activity ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-    <!-- Name of the name category in the exercise editor [CHAR LIMIT=15] -->
-    <string name="exercise_editor_category_name">Name</string>
-    <!-- Name of the exercise category category in the exercise editor [CHAR LIMIT=15] -->
-    <string name="exercise_editor_category_exercise_category">Category</string>
+    <!-- Titles -->
+    <!-- Name of the overview title in the exercise editor [CHAR LIMIT=15] -->
+    <string name="exercise_editor_title_overview">Exercise Overview</string>
+    <!-- Name of the details title in the exercise editor [CHAR LIMIT=15] -->
+    <string name="exercise_editor_title_details">Exercise Details</string>
 
+    <!-- Labels -->
+    <!-- Name of the name lable in the exercise editor [CHAR LIMIT=15] -->
+    <string name="exercise_editor_lable_name">Name</string>
+    <!-- Name of the exercise category lable in the exercise editor [CHAR LIMIT=15] -->
+    <string name="exercise_editor_lable_exercise_category">Category</string>
+    <!-- Name of the units lable in the exercise editor [CHAR LIMIT=15] -->
+    <string name="exercise_editor_lable_units">Units</string>
+    <!-- Name of the number of sets lable in the exercise editor [CHAR LIMIT=15] -->
+    <string name="exercise_editor_lable_num_sets">Number of Sets</string>
+    <!-- Name of the minimum number of reps lable in the exercise editor [CHAR LIMIT=15] -->
+    <string name="exercise_editor_lable_min_num_reps">Minimum Reps</string>
+    <!-- Name of the maximum number of reps lable in the exercise editor [CHAR LIMIT=15] -->
+    <string name="exercise_editor_lable_max_num_reps">Maximum Reps</string>
+
+    <!-- Input Field Text Hints -->
     <!-- Text hint for name field in the editor [CHAR LIMIT=30] -->
     <string name="hint_exercise_name">Benchpress/Squats/Curls/...</string>
     <!-- Text hint for exercise category field in the editor [CHAR LIMIT=30] -->
     <string name="hint_exercise_category">Chest/Full Body/Cardio/...</string>
+    <!-- Text hint for number of sets input field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_exercise_num_sets">3</string>
+    <!-- Text hint for minimum number of reps input field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_exercise_min_num_reps">6</string>
+    <!-- Text hint for maximum number of reps input field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_exercise_max_num_reps">15</string>
 
 </resources>

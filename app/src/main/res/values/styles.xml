@@ -16,7 +16,7 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
-    <!-- Style for a category in the exercise editor -->
+    <!-- Style for a Category in the exercise editor -->
     <style name="ExerciseEditorCategoryStyle">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">0dp</item>
@@ -25,6 +25,17 @@
         <item name="android:textColor">@color/colorAccent</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textAppearance">?android:textAppearanceSmall</item>
+    </style>
+
+    <!-- Style for a Lable in the exercise editor -->
+    <style name="ExerciseEditorLabelStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/darkmodeTextLight</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">24dp</item>
+
+        <item name="android:textAlignment">center</item>
     </style>
 
 
