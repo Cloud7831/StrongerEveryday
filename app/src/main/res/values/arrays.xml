@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- These are the options displayed in the unit drop-down Spinner -->
+    <string-array name="array_unit_options">
+        <item>@string/units_not_applicable</item>
+        <item>@string/units_kilograms</item>
+        <item>@string/units_pounds</item>
+        <item>@string/units_minutes</item>
+        <item>@string/units_seconds</item>
+        <item>@string/units_kilometers</item>
+        <item>@string/units_miles</item>
+    </string-array>
+</resources>

@@ -8,18 +8,27 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
+import com.cloud7831.strongereveryday.Data.WorkoutContract.*;
 import com.cloud7831.strongereveryday.R;
 
 public class ExerciseEditorActivity extends AppCompatActivity {
 
     private Uri currentExerciseUri;
 
+    private Spinner unitsSpinner;
+
     private boolean hasChanged; // True if the user has modified data.
     private boolean editMode; // Edit existing exercise = true. Create new exercise = false.
+
+    private int units; // Holds the units of the exercise.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,5 +155,52 @@ public class ExerciseEditorActivity extends AppCompatActivity {
 
         // Show dialog that there are unsaved changes
         showUnsavedChangesDialog(discardButtonClickListener);
+    }
+
+    /**
+     * Setup the dropdown spinner that allows the user to select the units of the this exercise.
+     */
+    private void setupSpinner() {
+        // Create adapter for spinner. The list options are from the String array it will use
+        // the spinner will use the default layout
+        ArrayAdapter unitsSpinnerAdapter = ArrayAdapter.createFromResource(this,
+                R.array.array_unit_options, android.R.layout.simple_spinner_item);
+
+        // Specify dropdown layout style - simple list view with 1 item per line
+        unitsSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+
+        // Apply the adapter to the spinner
+        unitsSpinner.setAdapter(unitsSpinnerAdapter);
+
+        // Set the integer mSelected to the constant values
+        unitsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selection = (String) parent.getItemAtPosition(position);
+                if (!TextUtils.isEmpty(selection)) {
+                    if (selection.equals(getString(R.string.units_seconds))){
+                        units = WorkoutEntry.UNIT_SECONDS;
+                    } else if (selection.equals(getString(R.string.units_kilograms))) {
+                        units = WorkoutEntry.UNIT_KILOGRAMS;
+                    } else if (selection.equals(getString(R.string.units_kilometers))) {
+                        units = WorkoutEntry.UNIT_KILOMETERS;
+                    } else if (selection.equals(getString(R.string.units_miles))) {
+                        units = WorkoutEntry.UNIT_MILES;
+                    } else if (selection.equals(getString(R.string.units_minutes))) {
+                        units = WorkoutEntry.UNIT_MINUTES;
+                    } else if (selection.equals(getString(R.string.units_pounds))) {
+                        units = WorkoutEntry.UNIT_POUNDS;
+                    } else {
+                        units = WorkoutEntry.UNIT_NOT_APPLICABLE;
+                    }
+                }
+            }
+
+            // Because AdapterView is an abstract class, onNothingSelected must be defined
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                units = WorkoutEntry.UNIT_NOT_APPLICABLE; // Unknown
+            }
+        });
     }
 }

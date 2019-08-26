@@ -1,8 +1,12 @@
 package com.cloud7831.strongereveryday.Data;
 
 import android.content.ContentResolver;
+import android.content.Context;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.provider.BaseColumns;
+
+import com.cloud7831.strongereveryday.R;
 
 public final class WorkoutContract {
 
@@ -33,6 +37,13 @@ public final class WorkoutContract {
         public final static String WORKOUT_JSON = "json"; // The name of the json file.
         public final static String WORKOUT_LAST_COMPLETED = "last completed";
 
+        public final static int UNIT_NOT_APPLICABLE = 0;
+        public final static int UNIT_KILOGRAMS = 1;
+        public final static int UNIT_POUNDS = 2;
+        public final static int UNIT_MINUTES = 3;
+        public final static int UNIT_SECONDS = 4;
+        public final static int UNIT_KILOMETERS = 5;
+        public final static int UNIT_MILES = 6;
     }
 
     public enum WorkoutCardType{

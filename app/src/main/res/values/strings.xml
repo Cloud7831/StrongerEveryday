@@ -35,7 +35,24 @@
     <string name="negative_button_no">No</string>
 
 
-    <!-- ~~~~~~~~~~~~~~~~~~~~ Exercise Editor Activity ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Units ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+    <!-- Text for the units Kilograms [CHAR LIMIT=15] -->
+    <string name="units_not_applicable">N/A</string>
+    <!-- Text for the units miles [CHAR LIMIT=15] -->
+    <string name="units_kilograms">Kg</string>
+    <!-- Text for the units Pounds [CHAR LIMIT=15] -->
+    <string name="units_pounds">lbs</string>
+    <!-- Text for the units Minutes [CHAR LIMIT=15] -->
+    <string name="units_minutes">mins</string>
+    <!-- Text for the units Seconds [CHAR LIMIT=15] -->
+    <string name="units_seconds">secs</string>
+    <!-- Text for the units Kilometers [CHAR LIMIT=15] -->
+    <string name="units_kilometers">Km</string>
+    <!-- Text for the units N/A [CHAR LIMIT=15] -->
+    <string name="units_miles">miles</string>
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~ Exercise Editor Activity ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
     <!-- Titles -->
     <!-- Name of the overview title in the exercise editor [CHAR LIMIT=15] -->
