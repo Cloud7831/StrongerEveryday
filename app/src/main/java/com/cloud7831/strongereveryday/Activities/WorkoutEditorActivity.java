@@ -45,6 +45,7 @@ public class WorkoutEditorActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                showAddElementDialog();
                 //TODO: set up the FAB so that when clicked, it shows the options of what you can add to the workout
                 //TODO: ie, add an exercise, title card, video card, etc.
             }
@@ -119,6 +120,33 @@ public class WorkoutEditorActivity extends AppCompatActivity {
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showAddElementDialog(){
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        //TODO: make a custom dialog layout by using layout inflater to inflate a better looking view.
+
+        builder.setTitle(getString(R.string.workout_add_element_dialog_title)); //TODO: might need to use resources before getString.
+
+        // create the list of options
+        String[] options = getResources().getStringArray(R.array.workout_add_element_dialog_options);
+        // add a list
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int index){
+                switch(index){
+                    case 0: //TODO: Add Exercise
+                    case 1: //TODO: Existing Exercise
+                    case 2: //TODO: Video
+                    case 3: //TODO: Title
+                    default:
+
+                }
+            }
+        });
+
+        android.app.AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     private void showUnsavedChangesDialog(DialogInterface .OnClickListener discardButtonClickListener){
