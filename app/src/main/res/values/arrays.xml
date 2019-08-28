@@ -10,4 +10,11 @@
         <item>@string/units_kilometers</item>
         <item>@string/units_miles</item>
     </string-array>
+
+    <string-array name="workout_add_element_dialog_options">
+        <item>@string/dialog_option_new_exercise</item>
+        <item>@string/dialog_option_existing_exercise</item>
+        <item>@string/dialog_option_video</item>
+        <item>@string/dialog_option_title</item>
+    </string-array>
 </resources>

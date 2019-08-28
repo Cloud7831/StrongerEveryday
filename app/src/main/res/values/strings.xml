@@ -86,4 +86,12 @@
     <!-- Text hint for maximum number of reps input field in the editor [CHAR LIMIT=30] -->
     <string name="hint_exercise_max_num_reps">15</string>
 
+
+    <!-- Strings for the Workout Activity -->
+    <string name="workout_add_element_dialog_title">Select an element to add to the workout</string>
+    <string name="dialog_option_new_exercise">New Exercise</string>
+    <string name="dialog_option_existing_exercise">Existing Exercise</string>
+    <string name="dialog_option_video">Video</string>
+    <string name="dialog_option_title">Title</string>
+
 </resources>
